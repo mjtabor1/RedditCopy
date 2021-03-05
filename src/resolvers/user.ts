@@ -78,7 +78,6 @@ export class UserResolver {
         };
       }
     }
-    
     return {user};
   }
 
@@ -86,7 +85,7 @@ export class UserResolver {
   @Mutation(() => UserResponse) //declare what our query returns
   async login(
     @Arg('options') options: UsernamePasswordInput,
-    @Ctx() {em}: MyContext
+    @Ctx() {em, req}: MyContext
   ): Promise<UserResponse> {
     const user = await em.findOne(User, {username: options.username});
     if (!user) {
@@ -98,6 +97,8 @@ export class UserResolver {
         ],
       };
     }
+
+    req.session.userId = user.id;
 
     const valid = await argon2.verify(user.password, options.password);
     if (!valid) {

@@ -11,9 +11,9 @@ export default {
     path: path.join(__dirname, './migrations'), // path to the folder with migrations
     pattern: /^[\w-]+\d+\.[tj]s$/, // regex pattern for the migration files
   },
-  dbName: 'redditcopy',
+  dbName: 'lireddit',
   debug: !__prod__,
   type: 'postgresql',
   user: 'postgres',
-  password: 'Twenty_23!' 
+  password: 'password' 
 } as Parameters<typeof MikroORM.init>[0]; //getting the type that MikroORM.init expects for its first parameter

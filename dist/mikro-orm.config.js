@@ -13,10 +13,10 @@ exports.default = {
         path: path_1.default.join(__dirname, './migrations'),
         pattern: /^[\w-]+\d+\.[tj]s$/,
     },
-    dbName: 'redditcopy',
+    dbName: 'lireddit',
     debug: !constants_1.__prod__,
     type: 'postgresql',
     user: 'postgres',
-    password: 'Twenty_23!'
+    password: 'password'
 };
 //# sourceMappingURL=mikro-orm.config.js.map
